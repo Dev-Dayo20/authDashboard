@@ -8,28 +8,46 @@ import Users from "./components/Users";
 import Analytics from "./components/Analytics";
 import Settings from "./components/Settings";
 import ProtectedRoutes from "./contexts/ProtectedRoutes";
-import { TypescriptClass } from "./TypescriptClass";
 import { ChildrenExample } from "./ChildrenExample";
+import { Button } from "./Button";
+import BeneficiaryLayout from "./layouts/BeneficiaryLayout";
 
 function App() {
-  // const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   return (
     <>
-      <div className="p-4 bg-gray-100 dark:bg-gray-800">
-        <TypescriptClass name="Musa" age={30} status={true} />
-      </div>
-      <div className="p-4 bg-gray-100 dark:bg-gray-800">
+      {/* <div className="p-4 bg-gray-100 dark:bg-gray-800 mb-10">
         <ChildrenExample>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut rerum
             illum sit est sequi ea laboriosam aperiam itaque ipsam nisi.
           </p>
+          <div className="flex mt-4 ">
+            <button className="bg-blue-900  px-5 rounded-xl text-white hover:bg-blue-950 transition-all">
+              Explore{" "}
+            </button>
+            <Button name="Get Started" />
+          </div>
         </ChildrenExample>
-      </div>
+      </div> */}
+
       <BrowserRouter>
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
           <Routes>
             {/* Public Routes */}
+            <Route
+              path="/"
+              element={
+                <BeneficiaryLayout
+                  theme={theme}
+                  setTheme={setTheme}
+                  resolvedTheme={resolvedTheme}
+                />
+              }
+            >
+              <Route index element={<Dashboard />} />
+              <Route path="/profile" element />
+            </Route>
             <Route path="/login" />
 
             {/* Admin Routes */}

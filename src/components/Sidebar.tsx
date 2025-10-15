@@ -1,14 +1,14 @@
-import React from 'react';
-import { 
-  BarChart3, 
-  Users, 
-  Settings, 
-  Home, 
+import React from "react";
+import {
+  BarChart3,
+  Users,
+  Settings,
+  Home,
   X,
   TrendingUp,
   ShoppingCart,
-  FileText
-} from 'lucide-react';
+  FileText,
+} from "lucide-react";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -17,15 +17,20 @@ interface SidebarProps {
   onTabChange: (tab: string) => void;
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, activeTab, onTabChange }) => {
+const Sidebar: React.FC<SidebarProps> = ({
+  isOpen,
+  onClose,
+  activeTab,
+  onTabChange,
+}) => {
   const navigation = [
-    { name: 'Dashboard', id: 'dashboard', icon: Home },
-    { name: 'Analytics', id: 'analytics', icon: BarChart3 },
-    { name: 'Users', id: 'users', icon: Users },
-    { name: 'Sales', id: 'sales', icon: ShoppingCart },
-    { name: 'Reports', id: 'reports', icon: FileText },
-    { name: 'Growth', id: 'growth', icon: TrendingUp },
-    { name: 'Settings', id: 'settings', icon: Settings },
+    { name: "Dashboard", id: "dashboard", icon: Home },
+    { name: "Analytics", id: "analytics", icon: BarChart3 },
+    { name: "Users", id: "users", icon: Users },
+    { name: "Sales", id: "sales", icon: ShoppingCart },
+    { name: "Reports", id: "reports", icon: FileText },
+    { name: "Growth", id: "growth", icon: TrendingUp },
+    { name: "Settings", id: "settings", icon: Settings },
   ];
 
   return (
@@ -33,10 +38,15 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, activeTab, onTabChan
       {/* Mobile overlay */}
       {isOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
-          <div className="fixed inset-0 bg-gray-600 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-75" onClick={onClose} />
+          <div
+            className="fixed inset-0 bg-gray-600 dark:bg-gray-900 bg-opacity-75 dark:bg-opacity-75"
+            onClick={onClose}
+          />
           <div className="fixed inset-y-0 left-0 flex w-full max-w-xs flex-col bg-white dark:bg-gray-800 transition-colors duration-200">
             <div className="flex h-16 items-center justify-between px-4">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Admin Panel</h2>
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                Admin Panel
+              </h2>
               <button
                 type="button"
                 className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors duration-200"
@@ -57,8 +67,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, activeTab, onTabChan
                     }}
                     className={`${
                       activeTab === item.id
-                        ? 'bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
+                        ? "bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400"
+                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm font-medium transition-colors duration-200`}
                   >
                     <Icon className="mr-3 h-5 w-5 flex-shrink-0" />
@@ -87,8 +97,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose, activeTab, onTabChan
                     onClick={() => onTabChange(item.id)}
                     className={`${
                       activeTab === item.id
-                        ? 'bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 border-r-2 border-blue-600 dark:border-blue-400'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
+                        ? "bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 border-r-2 border-blue-600 dark:border-blue-400"
+                        : "text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
                     } group flex w-full items-center rounded-l-md px-3 py-2 text-sm font-medium transition-all duration-200`}
                   >
                     <Icon className="mr-3 h-5 w-5 flex-shrink-0" />

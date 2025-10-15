@@ -60,6 +60,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const login = async (email: String, password: String): Promise<boolean> => {
     try {
       setLoading(true);
+
       const mockLogin = (email: String, password: String): User | null => {
         const mockUsers: User[] = [
           {
@@ -81,6 +82,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
             role: "beneficiary",
           },
         ];
+
         const user = mockUsers.find(
           (u) => u.email === email && password === "password123"
         );

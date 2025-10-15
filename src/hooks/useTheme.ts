@@ -15,7 +15,6 @@ export const useTheme = () => {
     
     const updateTheme = () => {
       let newResolvedTheme: 'light' | 'dark';
-      
       if (theme === 'system') {
         newResolvedTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
       } else {
@@ -28,6 +27,7 @@ export const useTheme = () => {
       localStorage.setItem('theme', theme);
     };
     updateTheme();
+      
     // Listen for system theme changes
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const handleChange = () => {
